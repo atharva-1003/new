@@ -9,6 +9,44 @@
   --accent: #ff9f43;
   --shadow: 0 20px 45px rgba(31, 55, 125, 0.14);
   --radius: 20px;
+  --orb-left: #7ab0ff;
+  --orb-right: #ffd7a6;
+  --grad-1: #d9e3fc;
+  --grad-2: #c7d8ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.dark-theme {
+    --bg: #0f1d4d;
+    --surface: #1a2a5e;
+    --ink: #f4f8ff;
+    --muted: #a8b5d1;
+    --line: #2a3a6f;
+    --primary: #6b8eff;
+    --primary-deep: #5073e6;
+    --accent: #ffb366;
+    --shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    --orb-left: #3d5a99;
+    --orb-right: #8b6f47;
+    --grad-1: #2a3a6f;
+    --grad-2: #1f2a5c;
+  }
+}
+
+:root.dark-theme {
+  --bg: #0f1d4d;
+  --surface: #1a2a5e;
+  --ink: #f4f8ff;
+  --muted: #a8b5d1;
+  --line: #2a3a6f;
+  --primary: #6b8eff;
+  --primary-deep: #5073e6;
+  --accent: #ffb366;
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  --orb-left: #3d5a99;
+  --orb-right: #8b6f47;
+  --grad-1: #2a3a6f;
+  --grad-2: #1f2a5c;
 }
 
 * {
@@ -20,10 +58,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
-  background: radial-gradient(circle at 10% 10%, #d9e3fc 0%, transparent 45%),
-    radial-gradient(circle at 85% 15%, #c7d8ff 0%, transparent 35%),
+  background: radial-gradient(circle at 10% 10%, var(--grad-1) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, var(--grad-2) 0%, transparent 35%),
     var(--bg);
   color: var(--ink);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -52,13 +91,13 @@ a {
 }
 
 .orb-left {
-  background: #7ab0ff;
+  background: var(--orb-left);
   top: -60px;
   left: -40px;
 }
 
 .orb-right {
-  background: #ffd7a6;
+  background: var(--orb-right);
   right: -60px;
   top: 220px;
 }
@@ -70,6 +109,12 @@ a {
   background: rgba(244, 248, 255, 0.85);
   border-bottom: 1px solid rgba(217, 227, 252, 0.7);
   z-index: 5;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+:root.dark-theme .site-header {
+  background: rgba(15, 29, 77, 0.85);
+  border-bottom: 1px solid rgba(42, 58, 111, 0.7);
 }
 
 .nav-wrap {
@@ -78,6 +123,12 @@ a {
   justify-content: space-between;
   padding: 1rem 0;
   gap: 1rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .logo {
@@ -93,8 +144,71 @@ a {
   color: var(--muted);
 }
 
+.top-nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.top-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
 .top-nav a:hover {
   color: var(--ink);
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+.top-nav a:focus-visible {
+  outline: 2px solid var(--primary);
+  border-radius: 4px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(79, 125, 243, 0.1);
+  border-color: var(--primary);
+}
+
+:root.dark-theme .theme-toggle:hover {
+  background: rgba(107, 142, 255, 0.16);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
 }
 
 .btn {
@@ -121,6 +235,10 @@ a {
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
+}
+
+:root.dark-theme .btn-outline {
+  background: rgba(26, 42, 94, 0.95);
 }
 
 .hero {
@@ -202,6 +320,10 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
+:root.dark-theme .service-band {
+  background: linear-gradient(155deg, #1a2a5e 0%, #1f2a5c 45%, #2a2418 100%);
+}
+
 .service-inner {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -276,6 +398,17 @@ a {
 .hash {
   color: var(--ink);
   font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .nav-wrap {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
 }
 
 .reveal {
