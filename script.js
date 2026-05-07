@@ -13,14 +13,9 @@ const setTheme = (isDarkMode) => {
 
   if (themeToggle) {
     const themeIcon = themeToggle.querySelector('.theme-icon');
-    const themeLabel = themeToggle.querySelector('.theme-label');
 
     if (themeIcon) {
       themeIcon.textContent = isDarkMode ? '☀' : '🌙';
-    }
-
-    if (themeLabel) {
-      themeLabel.textContent = isDarkMode ? 'Light' : 'Dark';
     }
 
     themeToggle.setAttribute('aria-label', isDarkMode ? 'Toggle light mode' : 'Toggle dark mode');
