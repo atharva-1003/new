@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile | Lidia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-left" aria-hidden="true"></div>
+  <div class="bg-orb orb-right" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Lidia</a>
+      <nav class="top-nav" aria-label="Main Navigation">
+        <a href="index.html#location">Location</a>
+        <a href="index.html#reviews">Review</a>
+        <a href="index.html#services">Service</a>
+        <a href="index.html#features">Feature</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">🌙</span>
+        </button>
+        <a class="btn btn-outline" href="profile.html">Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="profile-main">
+    <div class="container reveal">
+      <div class="profile-header">
+        <div class="profile-avatar-section">
+          <div class="profile-avatar" id="profileAvatar">
+            <span class="avatar-initials">JD</span>
+          </div>
+          <button class="btn btn-outline btn-sm" id="changeAvatarBtn" type="button">Change Avatar</button>
+        </div>
+        
+        <div class="profile-info-section">
+          <h1 id="profileName">John Doe</h1>
+          <p class="profile-email" id="profileEmail">john@example.com</p>
+          <p class="profile-member-since" id="profileMemberSince">Member since May 2024</p>
+          
+          <div class="profile-stats">
+            <div class="stat">
+              <strong id="booksRented">12</strong>
+              <span>Books Rented</span>
+            </div>
+            <div class="stat">
+              <strong id="booksReviewed">8</strong>
+              <span>Reviews Posted</span>
+            </div>
+            <div class="stat">
+              <strong id="wishlistCount">24</strong>
+              <span>In Wishlist</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-tabs">
+        <button class="tab-button active" data-tab="account" type="button">Account Details</button>
+        <button class="tab-button" data-tab="rentals" type="button">My Rentals</button>
+        <button class="tab-button" data-tab="wishlist" type="button">Wishlist</button>
+        <button class="tab-button" data-tab="settings" type="button">Settings</button>
+      </div>
+
+      <!-- Account Details Tab -->
+      <div class="tab-content active" id="account-tab">
+        <div class="form-section">
+          <h2>Personal Information</h2>
+          <form id="profileForm" class="profile-form">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" value="John" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" value="Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" value="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" value="+1 (555) 123-4567" />
+            </div>
+            <div class="form-group">
+              <label for="bio">Bio</label>
+              <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself...">Passionate reader and book enthusiast. Love discovering new genres and sharing thoughts on literature.</textarea>
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" value="San Francisco, CA" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+        </div>
+
+        <div class="form-section">
+          <h2>Password & Security</h2>
+          <button class="btn btn-outline" id="changePasswordBtn" type="button">Change Password</button>
+          <div class="security-info">
+            <p><strong>Two-Factor Authentication:</strong> <span class="badge">Disabled</span></p>
+            <button class="btn btn-outline btn-sm" id="enable2FABtn" type="button">Enable 2FA</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rentals Tab -->
+      <div class="tab-content" id="rentals-tab">
+        <div class="form-section">
+          <h2>Currently Renting</h2>
+          <div class="rentals-list">
+            <div class="rental-card">
+              <div class="rental-info">
+                <h3>The Great Gatsby</h3>
+                <p class="author">by F. Scott Fitzgerald</p>
+                <p class="rental-dates"><strong>Rental ends:</strong> May 15, 2026</p>
+              </div>
+              <div class="rental-actions">
+                <span class="days-left">7 days left</span>
+                <button class="btn btn-outline btn-sm" type="button">Renew</button>
+              </div>
+            </div>
+            <div class="rental-card">
+              <div class="rental-info">
+                <h3>To Kill a Mockingbird</h3>
+                <p class="author">by Harper Lee</p>
+                <p class="rental-dates"><strong>Rental ends:</strong> May 20, 2026</p>
+              </div>
+              <div class="rental-actions">
+                <span class="days-left">12 days left</span>
+                <button class="btn btn-outline btn-sm" type="button">Renew</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Rental History</h2>
+          <div class="history-list">
+            <div class="history-item">
+              <p>1984</p>
+              <p class="history-date">Returned Mar 15, 2026</p>
+            </div>
+            <div class="history-item">
+              <p>Pride and Prejudice</p>
+              <p class="history-date">Returned Feb 28, 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishlist Tab -->
+      <div class="tab-content" id="wishlist-tab">
+        <div class="form-section">
+          <h2>Your Wishlist</h2>
+          <div class="wishlist-grid">
+            <div class="wishlist-item">
+              <div class="item-placeholder"></div>
+              <h4>Dune</h4>
+              <p class="author">by Frank Herbert</p>
+              <button class="btn btn-outline btn-sm" type="button">Rent Now</button>
+            </div>
+            <div class="wishlist-item">
+              <div class="item-placeholder"></div>
+              <h4>The Hobbit</h4>
+              <p class="author">by J.R.R. Tolkien</p>
+              <button class="btn btn-outline btn-sm" type="button">Rent Now</button>
+            </div>
+            <div class="wishlist-item">
+              <div class="item-placeholder"></div>
+              <h4>Brave New World</h4>
+              <p class="author">by Aldous Huxley</p>
+              <button class="btn btn-outline btn-sm" type="button">Rent Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div class="tab-content" id="settings-tab">
+        <div class="form-section">
+          <h2>Preferences</h2>
+          <div class="settings-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="emailNotifications" checked />
+              <span>Receive email notifications</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="smsNotifications" />
+              <span>Receive SMS notifications</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="rentReminders" checked />
+              <span>Rental due date reminders</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Privacy & Data</h2>
+          <div class="settings-actions">
+            <button class="btn btn-outline" id="downloadDataBtn" type="button">Download My Data</button>
+            <button class="btn btn-outline" id="deleteAccountBtn" type="button">Delete Account</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-footer">
+        <button class="btn btn-outline" id="logoutBtn" type="button">Logout</button>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="profile.js"></script>
+</body>
+</html>
