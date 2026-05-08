@@ -12,13 +12,7 @@ const setTheme = (isDarkMode) => {
   document.documentElement.classList.toggle('dark-theme', isDarkMode);
 
   if (themeToggle) {
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-
-    if (themeIcon) {
-      themeIcon.textContent = isDarkMode ? '☀' : '🌙';
-    }
-
-    themeToggle.setAttribute('aria-label', isDarkMode ? 'Toggle light mode' : 'Toggle dark mode');
+    themeToggle.setAttribute('aria-label', isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
     themeToggle.setAttribute('aria-pressed', String(isDarkMode));
   }
 };
